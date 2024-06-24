@@ -10,7 +10,7 @@ function App() {
     fetch('http://localhost:5000/api/products')
     .then(response => response.json())
     .then(data => setProducts(data))
-  }, [])
+  }, []) //add an empty array as a dependency or unless there will be an endless loop
 
   function addProduct(){
     setProducts(prevState => [...prevState, {name: 'product' + (prevState.length + 1), price: (prevState.length * 100) + 100}])
